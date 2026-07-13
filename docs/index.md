@@ -79,6 +79,10 @@
 
 ---
 
+<div style="text-align: center; margin: 1.5rem 0;">
+  <img src="images/logo_MBA_hz.png" alt="MBA - Universidad Técnica Federico Santa María" style="width: 360px; max-width: 90%;">
+</div>
+
 > 👆 Fernando Díaz H. dicta el curso de Dirección Financiera en el programa MBA de la Universidad Técnica Federico Santa María.
 
 ## Sobre el Curso
