@@ -67,11 +67,11 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-            link: https://github.com/fdiaz1968
+      link: https://github.com/fdiaz1968
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/faam/
     - icon: fontawesome/solid/globe
-            link: https://fdiaz1968.github.io/portfolio/
+      link: https://fdiaz1968.github.io/portfolio/
 
 # Plugins
 plugins:
