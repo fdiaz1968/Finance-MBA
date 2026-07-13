@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/__init__/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/__init__/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/basic/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/programa/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/intro/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/assessments/proyecto_integrador/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/pandas/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/clases/clases/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://github.com/fdiaz1968/Finance-MBA/seaborn/</loc>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/clases/indices_americanos/</loc>
+         <lastmod>2026-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/datasets/datasets/</loc>
+         <lastmod>2026-07-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/exercises/exercises/</loc>
          <lastmod>2026-07-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
