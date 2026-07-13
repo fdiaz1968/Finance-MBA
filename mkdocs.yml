@@ -1,10 +1,10 @@
 # Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
 
 # Project information
-site_name: Home
-site_url: https://github.com/fdiaz1968/Finance-MBA
-site_author: Fernando Díaz
-site_description:
+site_name: Dirección Financiera - MBA
+site_url: https://fdiaz1968.github.io/Finance-MBA/
+site_author: Fernando Díaz H., PhD.
+site_description: Dirección Financiera (MGE 308) — Riesgo, Portafolio y Valoración de Activos · MBA UTFSM
 
 # Repository
 repo_name: fdiaz1968/Finance-MBA
@@ -36,8 +36,8 @@ extra_javascript:
 theme:
   name: material
   language: es
-  logo: images/logo.bmp
-  favicon: images/logo_python.svg
+  logo: images/logo_utfsm.png
+  favicon: images/logo_utfsm.png
   features:
     - navigation.instant
     - navigation.top
@@ -69,7 +69,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/fdiaz1968
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/faam/
+      link: https://www.linkedin.com/in/frdiazh/
     - icon: fontawesome/solid/globe
       link: https://fdiaz1968.github.io/portfolio/
 
@@ -82,10 +82,14 @@ plugins:
 # TOC
 nav:
     - Home: index.md
-    - Conceptos Básicos:
-        - intro.ipynb
-        - basic.ipynb
-    - Manipulación Datos:
-        - pandas.ipynb
-        - seaborn.ipynb
+    - Programa:
+        - programa.md
+    - Clases:
+        - clases/clases.md
+    - Ejercicios:
+        - exercises/exercises.md
+    - Datasets:
+        - datasets/datasets.md
+    - Evaluaciones:
+        - "📊 Proyecto Integrador": assessments/proyecto_integrador.md
 

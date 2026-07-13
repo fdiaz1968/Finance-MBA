@@ -1,4 +1,4 @@
-# Curso de Python (Template)
+# Dirección Financiera - MBA
 
 ![example workflow](https://github.com/fdiaz1968/Finance-MBA/actions/workflows/documentation.yml/badge.svg)
 <a href="https://fdiaz1968.github.io/Finance-MBA/"><img alt="Link a la Documentación" src="https://img.shields.io/badge/docs-link-brightgreen"></a>
@@ -13,16 +13,26 @@
 │           documentation.yml
 │
 ├────docs
-│   ├───.images
-│   │       logo.bmp
-│   │       logo_python.svg
+│   ├───assessments
+│   │       proyecto_integrador.md
+│   │
+│   ├───clases
+│   │       clases.md
+│   │       indices_americanos.ipynb
+│   │
+│   ├───datasets
+│   │       datasets.md
+│   │
+│   ├───exercises
+│   │       exercises.md
+│   │
+│   ├───images
+│   │       logo_utfsm.png
+│   │       perfil_fernando.png
 │   │
 │   │   __init__.py
-│   │   basic.ipynb
 │   │   index.md
-│   │   intro.ipynb
-│   │   pandas.ipynb
-│   │   seaborn.ipynb
+│   │   programa.md
 │   
 │   .gitignore
 │   LICENSE
@@ -35,10 +45,14 @@
 donde:
 
 * `documentation.yml`: archivo para generar el CI del proyecto.
-* `docs`: carpeta donde se almacenan los jupyter notebooks.
-  * `images`: carpeta con las imagenes del *logo* y el *favicon*. 
-  * `index.md`: archivo markdown inicial.
-  * `*.ipynb`: archivos jupyter notebook.
+* `docs`: carpeta donde se almacena la documentación del curso.
+  * `assessments`: evaluaciones del curso (ej. proyecto integrador).
+  * `clases`: notebooks de cada unidad del curso.
+  * `datasets`: datasets utilizados en el curso.
+  * `exercises`: ejercicios de práctica adicionales.
+  * `images`: carpeta con las imágenes del *logo*, *favicon* y perfil del profesor.
+  * `index.md`: archivo markdown inicial (perfil del profesor).
+  * `programa.md`: programa del curso.
 * `.gitignore`: lugar donde se define los archivos a ignorar.
 * `LICENSE`: licencia asociada al proyecto.
 * `mkdocs.yml`: archivo que orquestará la documentación del proyecto.
