@@ -2,13 +2,13 @@
 
 # Project information
 site_name: Home
-site_url: https://github.com/fralfaro/DS-Python-Course
-site_author: Francisco Alfaro
+site_url: https://github.com/fdiaz1968/Finance-MBA
+site_author: Fernando Díaz
 site_description:
 
 # Repository
-repo_name: fralfaro/DS-Python-Course
-repo_url: https://github.com/fralfaro/DS-Python-Course
+repo_name: fdiaz1968/Finance-MBA
+repo_url: https://github.com/fdiaz1968/Finance-MBA
 edit_uri: ''
 
 # Markdown extensions
@@ -67,11 +67,11 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/fralfaro
+            link: https://github.com/fdiaz1968
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/faam/
     - icon: fontawesome/solid/globe
-      link: https://fralfaro.github.io/portfolio/
+            link: https://fdiaz1968.github.io/portfolio/
 
 # Plugins
 plugins:
