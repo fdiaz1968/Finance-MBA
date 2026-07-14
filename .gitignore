@@ -65,6 +65,7 @@ target/
 
 # others
 
+.DS_Store
 *.csh
 *.fish
 *.directory
