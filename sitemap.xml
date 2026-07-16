@@ -2,47 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/__init__/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/programa/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/assessments/proyecto_integrador/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/clases/1_Indices_Riesgo_Retorno/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/clases/1_Riesgo_Retorno_Py/</loc>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/clases/2_Portfolio/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/clases/clases/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/datasets/datasets/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/exercises/exercises/</loc>
-         <lastmod>2026-07-14</lastmod>
+         <lastmod>2026-07-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
