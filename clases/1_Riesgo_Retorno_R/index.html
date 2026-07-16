@@ -2606,6 +2606,13 @@ display_html(as.character(
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Grafiquemos el precio de cierre, ajustado por dividendos y splits:</p>
+<p>Utilizamos el precio de cierre <strong>ajustado</strong> (<code>adjusted</code>) en lugar del precio de cierre bruto (<code>close</code>) porque este último puede distorsionar el retorno real del activo:</p>
+<ul>
+<li><strong>Splits (divisiones de acciones):</strong> si una empresa hace un split 2×1, el precio bruto cae a la mitad de un día para otro, aunque el valor total en manos del inversionista no cambia. El precio ajustado reescala la serie histórica para que se mantenga continua.</li>
+<li><strong>Dividendos:</strong> en la fecha ex-dividendo, el precio bruto cae aproximadamente en el monto del dividendo pagado —ese valor no se perdió, simplemente se distribuyó como efectivo—. El precio ajustado corrige esta caída, reflejando el retorno total (variación de precio + dividendos reinvertidos).</li>
+</ul>
+<blockquote><p>💡 En este caso particular, <code>^GSPC</code> es un <strong>índice de precios</strong>, no una acción individual: no tiene splits ni dividendos propios, por lo que <code>adjusted</code> y <code>close</code> suelen ser prácticamente idénticos aquí. Aun así, usamos <code>adjusted</code> como buena práctica, ya que el mismo patrón (<code>tq_get()</code> + retornos sobre <code>adjusted</code>) se reutiliza más adelante con acciones individuales que sí pagan dividendos, donde la diferencia sí es relevante.</p>
+</blockquote>
 
 </div>
 </div>
