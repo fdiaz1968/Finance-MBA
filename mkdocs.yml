@@ -86,7 +86,8 @@ plugins:
 nav:
     - Home: index.md
     - Programa: programa.md
-    - Clases: clases/clases.md
+    - Clases:
+        - Riesgo-Retorno: clases/clases.md
     - Ejercicios: exercises/exercises.md
     - Datasets: datasets/datasets.md
     - Evaluaciones:
