@@ -1657,6 +1657,32 @@ Licensed under the Apache License, Version 2.0.
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>En este notebook construiremos y analizaremos portafolios de inversión compuestos por varias acciones, con dos objetivos centrales:</p>
+<ul>
+<li><strong>Ilustrar el efecto de la diversificación:</strong> mostrar cómo combinar activos cuyos retornos no están perfectamente correlacionados permite reducir el riesgo de una cartera sin sacrificar necesariamente su retorno esperado.</li>
+<li><strong>Construir la Frontera Eficiente:</strong> el conjunto de portafolios que ofrecen el mayor retorno esperado para cada nivel de riesgo (o, equivalentemente, el menor riesgo para cada nivel de retorno).</li>
+</ul>
+<p>Para lograrlo:</p>
+<ol>
+<li>Descargaremos precios históricos de cinco acciones (AAPL, WMT, INTC, XOM, LMT) y calcularemos sus retornos logarítmicos diarios.</li>
+<li>Estimaremos la rentabilidad media y la matriz de varianzas-covarianzas de estos activos.</li>
+<li>Simularemos, mediante el método de <strong>Monte Carlo</strong>, miles de portafolios con ponderaciones aleatorias, calculando el retorno, el riesgo y el ratio de Sharpe de cada uno.</li>
+<li>Identificaremos dos portafolios de referencia: el de <strong>mínima varianza</strong> (el de menor riesgo posible) y el de <strong>tangencia</strong> (el de mayor ratio de Sharpe).</li>
+<li>Visualizaremos todos los portafolios simulados en el plano riesgo-retorno, trazando la Frontera Eficiente y destacando ambos portafolios de referencia.</li>
+</ol>
+<blockquote><p>💡 <strong>Idea central:</strong> el riesgo de un portafolio no es simplemente el promedio ponderado del riesgo de sus activos individuales — depende también de cómo se mueven esos activos entre sí (su covarianza). Por eso, una combinación adecuada de activos puede reducir el riesgo total por debajo del riesgo de cualquier activo individual.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
