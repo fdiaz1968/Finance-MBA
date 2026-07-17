@@ -451,20 +451,40 @@
     📉 Frontera Eficiente y el Efecto de la Diversificación
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i-extraer-datos-bursatiles" class="md-nav__link">
-    📥 I. Extraer Datos Bursátiles
-  </a>
-  
-    <nav class="md-nav" aria-label="📥 I. Extraer Datos Bursátiles">
+    <nav class="md-nav" aria-label="📉 Frontera Eficiente y el Efecto de la Diversificación">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data" class="md-nav__link">
-    🗂️ Data
+  <a href="#cargando-las-librerias" class="md-nav__link">
+    📦 Cargando las librerías
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraccion-de-datos-bursatiles" class="md-nav__link">
+    📥 Extracción de datos bursátiles
+  </a>
+  
+    <nav class="md-nav" aria-label="📥 Extracción de datos bursátiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiendo-los-tickers-de-las-acciones" class="md-nav__link">
+    🏷️ Definiendo los tickers de las acciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descarga-de-precios-historicos" class="md-nav__link">
+    📥 Descarga de precios históricos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1666,18 +1686,50 @@ Licensed under the Apache License, Version 2.0.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>En este notebook construiremos y analizaremos portafolios de inversión compuestos por varias acciones, con dos objetivos centrales:</p>
 <ul>
-<li><strong>Ilustrar el efecto de la diversificación:</strong> mostrar cómo combinar activos cuyos retornos no están perfectamente correlacionados permite reducir el riesgo de una cartera sin sacrificar necesariamente su retorno esperado.</li>
-<li><strong>Construir la Frontera Eficiente:</strong> el conjunto de portafolios que ofrecen el mayor retorno esperado para cada nivel de riesgo (o, equivalentemente, el menor riesgo para cada nivel de retorno).</li>
+<li><strong>Ilustrar el efecto de la diversificación:</strong> mostrar cómo la combinación de activos cuyos retornos no están perfectamente correlacionados puede reducir el riesgo total de una cartera sin disminuir necesariamente su retorno esperado.</li>
+<li><strong>Construir la Frontera Eficiente:</strong> identificar el conjunto de portafolios que ofrecen el mayor retorno esperado para cada nivel de riesgo o, de manera equivalente, el menor riesgo posible para cada nivel de retorno esperado.</li>
 </ul>
 <p>Para lograrlo:</p>
 <ol>
-<li>Descargaremos precios históricos de cinco acciones (AAPL, WMT, INTC, XOM, LMT) y calcularemos sus retornos logarítmicos diarios.</li>
-<li>Estimaremos la rentabilidad media y la matriz de varianzas-covarianzas de estos activos.</li>
-<li>Simularemos, mediante el método de <strong>Monte Carlo</strong>, miles de portafolios con ponderaciones aleatorias, calculando el retorno, el riesgo y el ratio de Sharpe de cada uno.</li>
-<li>Identificaremos dos portafolios de referencia: el de <strong>mínima varianza</strong> (el de menor riesgo posible) y el de <strong>tangencia</strong> (el de mayor ratio de Sharpe).</li>
-<li>Visualizaremos todos los portafolios simulados en el plano riesgo-retorno, trazando la Frontera Eficiente y destacando ambos portafolios de referencia.</li>
+<li>Descargaremos precios históricos de cinco acciones —AAPL, WMT, INTC, XOM y LMT— y calcularemos sus retornos logarítmicos diarios.</li>
+<li>Estimaremos el vector de retornos medios y la matriz de varianzas-covarianzas de estos activos.</li>
+<li>Simularemos, mediante el método de <strong><a href="https://www.ibm.com/es-es/think/topics/monte-carlo-simulation">Monte Carlo</a></strong>, miles de portafolios con ponderaciones aleatorias, calculando para cada uno su retorno esperado, volatilidad y ratio de Sharpe.</li>
+<li><p>Identificaremos dos portafolios de referencia:</p>
+<ul>
+<li>el portafolio de <strong>mínima varianza global</strong>, es decir, el de menor riesgo entre todos los portafolios factibles;</li>
+<li>el portafolio de <strong>tangencia</strong>, es decir, el que presenta el mayor ratio de Sharpe respecto de la tasa libre de riesgo utilizada.</li>
+</ul>
+</li>
+<li>Representaremos los portafolios simulados en el plano riesgo-retorno, trazaremos la Frontera Eficiente y destacaremos ambos portafolios de referencia.</li>
 </ol>
-<blockquote><p>💡 <strong>Idea central:</strong> el riesgo de un portafolio no es simplemente el promedio ponderado del riesgo de sus activos individuales — depende también de cómo se mueven esos activos entre sí (su covarianza). Por eso, una combinación adecuada de activos puede reducir el riesgo total por debajo del riesgo de cualquier activo individual.</p>
+<blockquote><p>💡 <strong>Idea central:</strong> el riesgo de un portafolio no es simplemente el promedio ponderado del riesgo de sus activos individuales. También depende de las covarianzas entre sus retornos, es decir, de la forma en que los activos se mueven conjuntamente. Por esta razón, una combinación adecuada de activos puede reducir significativamente el riesgo total de la cartera y, en algunos casos, situarlo por debajo del riesgo de cualquiera de sus componentes individuales.</p>
+</blockquote>
+<p><a href="https://www.ibm.com/es-es/think/topics/monte-carlo-simulation" target="_blank">
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/IBM_logo.svg" alt="IBM: simulación de Monte Carlo" width="110">
+</a></p>
+<p><em>Haz clic en el logotipo para acceder a la explicación de IBM sobre la simulación de Monte Carlo.</em></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="cargando-las-librerias">&#128230; Cargando las librer&#237;as<a class="anchor-link" href="#cargando-las-librerias">&#182;</a></h2><p>Antes de comenzar el análisis, cargaremos los paquetes de <strong>R</strong> que utilizaremos a lo largo del notebook:</p>
+<ul>
+<li><strong><code>tidyquant</code></strong>: descarga y manipulación de datos financieros.</li>
+<li><strong><code>timetk</code></strong>: transformación y organización de series temporales.</li>
+<li><strong><code>tidyr</code></strong>: reorganización de datos entre formatos ancho y largo.</li>
+<li><strong><code>ggplot2</code></strong>: construcción de gráficos.</li>
+<li><strong><code>forcats</code></strong>: manejo y reordenamiento de variables categóricas.</li>
+<li><strong><code>dplyr</code></strong>: transformación, filtrado y organización de bases de datos.</li>
+</ul>
+<p>También ajustaremos el tamaño y la resolución de los gráficos para mejorar su visualización dentro del notebook.</p>
+<blockquote><p>💡 Las librerías deben instalarse una sola vez, pero deben cargarse cada vez que se inicia una nueva sesión de R.</p>
 </blockquote>
 
 </div>
@@ -1721,7 +1773,7 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1774,25 +1826,54 @@ options(repr.plot.width = 10, repr.plot.height = 6, repr.plot.res = 150)</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="i-extraer-datos-bursatiles">&#128229; I. Extraer Datos Burs&#225;tiles<a class="anchor-link" href="#i-extraer-datos-bursatiles">&#182;</a></h1><h2 id="data">&#128450;&#65039; Data<a class="anchor-link" href="#data">&#182;</a></h2><p>Vamos a extraer información bursátil de las siguientes acciones:</p>
+<h2 id="extraccion-de-datos-bursatiles">&#128229; Extracci&#243;n de datos burs&#225;tiles<a class="anchor-link" href="#extraccion-de-datos-bursatiles">&#182;</a></h2><p>A continuación, descargaremos información histórica de precios para las siguientes acciones:</p>
 <ul>
-<li>Apple Inc (AAPL);</li>
-<li>Wallmart (WMT);</li>
-<li>Intel (INTC)</li>
-<li>Exxon (XOM)</li>
-<li>L-M (LMT)</li>
+<li><strong>Apple Inc. (<code>AAPL</code>)</strong>: empresa tecnológica.</li>
+<li><strong>Walmart Inc. (<code>WMT</code>)</strong>: empresa del sector comercio minorista.</li>
+<li><strong>Intel Corporation (<code>INTC</code>)</strong>: empresa de semiconductores.</li>
+<li><strong>Exxon Mobil Corporation (<code>XOM</code>)</strong>: empresa del sector energético.</li>
+<li><strong>Lockheed Martin Corporation (<code>LMT</code>)</strong>: empresa de los sectores aeroespacial y defensa.</li>
 </ul>
+<p>Estas acciones pertenecen a industrias diferentes, lo que permitirá ilustrar cómo la diversificación entre sectores puede contribuir a reducir el riesgo total de un portafolio.</p>
+<blockquote><p>💡 Utilizaremos los precios ajustados, ya que incorporan el efecto de dividendos y divisiones de acciones, y permiten calcular retornos históricos de manera más consistente.</p>
+</blockquote>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="definiendo-los-tickers-de-las-acciones">&#127991;&#65039; Definiendo los <em>tickers</em> de las acciones<a class="anchor-link" href="#definiendo-los-tickers-de-las-acciones">&#182;</a></h3><p>Primero, crearemos un objeto llamado <code>tick</code> que contendrá los símbolos bursátiles de las cinco acciones seleccionadas:</p>
+<div class="highlight"><pre><span></span><span class="n">tick</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s">&quot;WMT&quot;</span><span class="p">,</span> <span class="s">&quot;INTC&quot;</span><span class="p">,</span> <span class="s">&quot;XOM&quot;</span><span class="p">,</span> <span class="s">&quot;LMT&quot;</span><span class="p">)</span>
+</pre></div>
+<p>En <strong>R</strong>, la función <code>c()</code> permite combinar varios elementos dentro de un mismo vector.</p>
+<p>Cada elemento del objeto <code>tick</code> corresponde al símbolo utilizado por Yahoo Finance para identificar una acción:</p>
+<ul>
+<li><code>AAPL</code>: Apple Inc.</li>
+<li><code>WMT</code>: Walmart Inc.</li>
+<li><code>INTC</code>: Intel Corporation.</li>
+<li><code>XOM</code>: Exxon Mobil Corporation.</li>
+<li><code>LMT</code>: Lockheed Martin Corporation.</li>
+</ul>
+<p>Este vector será utilizado posteriormente en <code>tq_get()</code> para descargar simultáneamente los precios históricos de las cinco acciones.</p>
+<blockquote><p>💡 El nombre del objeto puede ser cualquiera, pero utilizaremos <code>tick</code> como una abreviación de <em>tickers</em>.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1808,41 +1889,11 @@ options(repr.plot.width = 10, repr.plot.height = 6, repr.plot.res = 150)</div>
             </clipboard-copy>
         </div>
             <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">tick</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s">&#39;WMT&#39;</span><span class="p">,</span> <span class="s">&#39;INTC&#39;</span><span class="p">,</span> <span class="s">&#39;XOM&#39;</span><span class="p">,</span> <span class="s">&#39;LMT&#39;</span><span class="p">)</span>
+<span class="n">tick</span>
 </pre></div>
 <div id="cell-3" class="clipboard-copy-txt">
-tick <- c('AAPL', 'WMT', 'INTC', 'XOM', 'LMT')</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-4">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">tick</span>
-</pre></div>
-<div id="cell-4" class="clipboard-copy-txt">tick</div>
+tick <- c('AAPL', 'WMT', 'INTC', 'XOM', 'LMT')
+tick</div>
     
         </div>
     </div>
@@ -1881,69 +1932,18 @@ tick <- c('AAPL', 'WMT', 'INTC', 'XOM', 'LMT')</div>
 </div>
 
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>El paquete <strong>tidyquant</strong> es una herramienta para trabajar con datos financieros y análisis cuantitativos en el entorno <strong>tidyverse</strong>.</p>
-<p>La función <strong>tq_get</strong> se utiliza para extraer datos financieros directamente al entorno de R. Vamos a estraer los datos de las acciones para el período de 5 años que terminó ayer y las vamos a guardar en el objeto <em>price_data</em>:</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-        <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-5">
-            <div>
-                <span class="notice" hidden>Copied!</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                </svg>
-                </div>
-            </clipboard-copy>
-        </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">price_data</span> <span class="o">&lt;-</span> <span class="nf">tq_get</span><span class="p">(</span><span class="n">tick</span><span class="p">,</span>
-                     <span class="n">from</span> <span class="o">=</span> <span class="s">&#39;2020-01-01&#39;</span><span class="p">,</span>
-                     <span class="n">to</span> <span class="o">=</span> <span class="s">&#39;2024-12-31&#39;</span><span class="p">,</span>
-                     <span class="n">get</span> <span class="o">=</span> <span class="s">&#39;stock.prices&#39;</span><span class="p">)</span>
-</pre></div>
-<div id="cell-5" class="clipboard-copy-txt">price_data <- tq_get(tick,
-                     from = '2020-01-01',
-                     to = '2024-12-31',
-                     get = 'stock.prices')</div>
-    
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
-            <clipboard-copy for="cell-6">
+            <clipboard-copy for="cell-4">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -1953,11 +1953,11 @@ tick <- c('AAPL', 'WMT', 'INTC', 'XOM', 'LMT')</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">price_data</span><span class="p">)</span>
-<span class="n">price_data</span>
+            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">tick</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt">class(price_data)
-price_data</div>
+<div id="cell-4" class="clipboard-copy-txt">tick
+length(tick)</div>
     
         </div>
     </div>
@@ -1985,7 +1985,7 @@ price_data</div>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'tbl_df'</li><li>'tbl'</li><li>'data.frame'</li></ol>
+<ol class=list-inline><li>'AAPL'</li><li>'WMT'</li><li>'INTC'</li><li>'XOM'</li><li>'LMT'</li></ol>
 
 </div>
 
@@ -1999,79 +1999,292 @@ price_data</div>
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A tibble: 6285 × 8</caption>
-<thead>
-	<tr><th scope=col>symbol</th><th scope=col>date</th><th scope=col>open</th><th scope=col>high</th><th scope=col>low</th><th scope=col>close</th><th scope=col>volume</th><th scope=col>adjusted</th></tr>
-	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;date&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>AAPL</td><td>2020-01-02</td><td>74.0600</td><td>75.1500</td><td>73.7975</td><td>75.0875</td><td>135480400</td><td>72.33387</td></tr>
-	<tr><td>AAPL</td><td>2020-01-03</td><td>74.2875</td><td>75.1450</td><td>74.1250</td><td>74.3575</td><td>146322800</td><td>71.63065</td></tr>
-	<tr><td>AAPL</td><td>2020-01-06</td><td>73.4475</td><td>74.9900</td><td>73.1875</td><td>74.9500</td><td>118387200</td><td>72.20142</td></tr>
-	<tr><td>AAPL</td><td>2020-01-07</td><td>74.9600</td><td>75.2250</td><td>74.3700</td><td>74.5975</td><td>108872000</td><td>71.86183</td></tr>
-	<tr><td>AAPL</td><td>2020-01-08</td><td>74.2900</td><td>76.1100</td><td>74.2900</td><td>75.7975</td><td>132079200</td><td>73.01785</td></tr>
-	<tr><td>AAPL</td><td>2020-01-09</td><td>76.8100</td><td>77.6075</td><td>76.5500</td><td>77.4075</td><td>170108400</td><td>74.56881</td></tr>
-	<tr><td>AAPL</td><td>2020-01-10</td><td>77.6500</td><td>78.1675</td><td>77.0625</td><td>77.5825</td><td>140644800</td><td>74.73738</td></tr>
-	<tr><td>AAPL</td><td>2020-01-13</td><td>77.9100</td><td>79.2675</td><td>77.7875</td><td>79.2400</td><td>121532000</td><td>76.33408</td></tr>
-	<tr><td>AAPL</td><td>2020-01-14</td><td>79.1750</td><td>79.3925</td><td>78.0425</td><td>78.1700</td><td>161954400</td><td>75.30333</td></tr>
-	<tr><td>AAPL</td><td>2020-01-15</td><td>77.9625</td><td>78.8750</td><td>77.3875</td><td>77.8350</td><td>121923600</td><td>74.98063</td></tr>
-	<tr><td>AAPL</td><td>2020-01-16</td><td>78.3975</td><td>78.9250</td><td>78.0225</td><td>78.8100</td><td>108829200</td><td>75.91987</td></tr>
-	<tr><td>AAPL</td><td>2020-01-17</td><td>79.0675</td><td>79.6850</td><td>78.7500</td><td>79.6825</td><td>137816400</td><td>76.76037</td></tr>
-	<tr><td>AAPL</td><td>2020-01-21</td><td>79.2975</td><td>79.7550</td><td>79.0000</td><td>79.1425</td><td>110843200</td><td>76.24018</td></tr>
-	<tr><td>AAPL</td><td>2020-01-22</td><td>79.6450</td><td>79.9975</td><td>79.3275</td><td>79.4250</td><td>101832400</td><td>76.51231</td></tr>
-	<tr><td>AAPL</td><td>2020-01-23</td><td>79.4800</td><td>79.8900</td><td>78.9125</td><td>79.8075</td><td>104472000</td><td>76.88078</td></tr>
-	<tr><td>AAPL</td><td>2020-01-24</td><td>80.0625</td><td>80.8325</td><td>79.3800</td><td>79.5775</td><td>146537600</td><td>76.65919</td></tr>
-	<tr><td>AAPL</td><td>2020-01-27</td><td>77.5150</td><td>77.9425</td><td>76.2200</td><td>77.2375</td><td>161940000</td><td>74.40505</td></tr>
-	<tr><td>AAPL</td><td>2020-01-28</td><td>78.1500</td><td>79.6000</td><td>78.0475</td><td>79.4225</td><td>162234000</td><td>76.50989</td></tr>
-	<tr><td>AAPL</td><td>2020-01-29</td><td>81.1125</td><td>81.9625</td><td>80.3450</td><td>81.0850</td><td>216229200</td><td>78.11143</td></tr>
-	<tr><td>AAPL</td><td>2020-01-30</td><td>80.1350</td><td>81.0225</td><td>79.6875</td><td>80.9675</td><td>126743200</td><td>77.99825</td></tr>
-	<tr><td>AAPL</td><td>2020-01-31</td><td>80.2325</td><td>80.6700</td><td>77.0725</td><td>77.3775</td><td>199588400</td><td>74.53990</td></tr>
-	<tr><td>AAPL</td><td>2020-02-03</td><td>76.0750</td><td>78.3725</td><td>75.5550</td><td>77.1650</td><td>173788400</td><td>74.33520</td></tr>
-	<tr><td>AAPL</td><td>2020-02-04</td><td>78.8275</td><td>79.9100</td><td>78.4075</td><td>79.7125</td><td>136616400</td><td>76.78925</td></tr>
-	<tr><td>AAPL</td><td>2020-02-05</td><td>80.8800</td><td>81.1900</td><td>79.7375</td><td>80.3625</td><td>118826800</td><td>77.41544</td></tr>
-	<tr><td>AAPL</td><td>2020-02-06</td><td>80.6425</td><td>81.3050</td><td>80.0650</td><td>81.3025</td><td>105425600</td><td>78.32097</td></tr>
-	<tr><td>AAPL</td><td>2020-02-07</td><td>80.5925</td><td>80.8500</td><td>79.5000</td><td>80.0075</td><td>117684000</td><td>77.25639</td></tr>
-	<tr><td>AAPL</td><td>2020-02-10</td><td>78.5450</td><td>80.3875</td><td>78.4625</td><td>80.3875</td><td>109348800</td><td>77.62330</td></tr>
-	<tr><td>AAPL</td><td>2020-02-11</td><td>80.9000</td><td>80.9750</td><td>79.6775</td><td>79.9025</td><td> 94323200</td><td>77.15497</td></tr>
-	<tr><td>AAPL</td><td>2020-02-12</td><td>80.3675</td><td>81.8050</td><td>80.3675</td><td>81.8000</td><td>113730400</td><td>78.98724</td></tr>
-	<tr><td>AAPL</td><td>2020-02-13</td><td>81.0475</td><td>81.5550</td><td>80.8375</td><td>81.2175</td><td> 94747600</td><td>78.42475</td></tr>
-	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
-	<tr><td>LMT</td><td>2024-11-15</td><td>537.87</td><td>542.54</td><td>531.42</td><td>534.83</td><td>1757100</td><td>510.2308</td></tr>
-	<tr><td>LMT</td><td>2024-11-18</td><td>536.40</td><td>537.98</td><td>528.74</td><td>530.96</td><td>1298400</td><td>506.5388</td></tr>
-	<tr><td>LMT</td><td>2024-11-19</td><td>537.08</td><td>539.32</td><td>531.21</td><td>533.26</td><td> 935700</td><td>508.7330</td></tr>
-	<tr><td>LMT</td><td>2024-11-20</td><td>534.18</td><td>535.23</td><td>529.20</td><td>534.73</td><td> 994300</td><td>510.1353</td></tr>
-	<tr><td>LMT</td><td>2024-11-21</td><td>535.14</td><td>544.68</td><td>533.72</td><td>542.01</td><td>1321700</td><td>517.0805</td></tr>
-	<tr><td>LMT</td><td>2024-11-22</td><td>545.00</td><td>546.00</td><td>539.92</td><td>542.22</td><td>1311000</td><td>517.2808</td></tr>
-	<tr><td>LMT</td><td>2024-11-25</td><td>532.98</td><td>534.16</td><td>514.90</td><td>521.89</td><td>3613500</td><td>497.8859</td></tr>
-	<tr><td>LMT</td><td>2024-11-26</td><td>519.39</td><td>524.06</td><td>519.39</td><td>521.45</td><td>1345800</td><td>497.4662</td></tr>
-	<tr><td>LMT</td><td>2024-11-27</td><td>523.54</td><td>529.99</td><td>523.17</td><td>525.75</td><td> 890400</td><td>501.5684</td></tr>
-	<tr><td>LMT</td><td>2024-11-29</td><td>527.77</td><td>529.48</td><td>524.59</td><td>529.41</td><td> 658200</td><td>505.0600</td></tr>
-	<tr><td>LMT</td><td>2024-12-02</td><td>525.25</td><td>526.79</td><td>519.30</td><td>520.34</td><td>1115600</td><td>499.5209</td></tr>
-	<tr><td>LMT</td><td>2024-12-03</td><td>520.14</td><td>521.50</td><td>516.25</td><td>517.00</td><td>1188400</td><td>496.3145</td></tr>
-	<tr><td>LMT</td><td>2024-12-04</td><td>516.13</td><td>519.83</td><td>513.14</td><td>517.50</td><td>1542800</td><td>496.7945</td></tr>
-	<tr><td>LMT</td><td>2024-12-05</td><td>517.42</td><td>520.56</td><td>514.01</td><td>517.48</td><td>1113400</td><td>496.7753</td></tr>
-	<tr><td>LMT</td><td>2024-12-06</td><td>515.72</td><td>517.44</td><td>509.60</td><td>513.03</td><td>1284700</td><td>492.5034</td></tr>
-	<tr><td>LMT</td><td>2024-12-09</td><td>511.19</td><td>516.36</td><td>508.55</td><td>510.01</td><td>1170500</td><td>489.6042</td></tr>
-	<tr><td>LMT</td><td>2024-12-10</td><td>509.16</td><td>514.61</td><td>508.10</td><td>512.94</td><td>1178900</td><td>492.4170</td></tr>
-	<tr><td>LMT</td><td>2024-12-11</td><td>513.80</td><td>514.00</td><td>503.31</td><td>504.24</td><td>1308000</td><td>484.0650</td></tr>
-	<tr><td>LMT</td><td>2024-12-12</td><td>500.00</td><td>501.10</td><td>488.71</td><td>496.58</td><td>1862800</td><td>476.7115</td></tr>
-	<tr><td>LMT</td><td>2024-12-13</td><td>495.57</td><td>499.22</td><td>492.18</td><td>494.65</td><td> 990100</td><td>474.8588</td></tr>
-	<tr><td>LMT</td><td>2024-12-16</td><td>494.80</td><td>494.80</td><td>490.15</td><td>491.65</td><td>1483700</td><td>471.9788</td></tr>
-	<tr><td>LMT</td><td>2024-12-17</td><td>489.06</td><td>493.00</td><td>487.76</td><td>490.61</td><td>1354500</td><td>470.9804</td></tr>
-	<tr><td>LMT</td><td>2024-12-18</td><td>489.50</td><td>490.24</td><td>482.41</td><td>482.94</td><td>1424400</td><td>463.6172</td></tr>
-	<tr><td>LMT</td><td>2024-12-19</td><td>480.00</td><td>484.00</td><td>477.31</td><td>479.66</td><td>1250400</td><td>460.4685</td></tr>
-	<tr><td>LMT</td><td>2024-12-20</td><td>479.45</td><td>489.02</td><td>477.77</td><td>489.02</td><td>3973500</td><td>469.4540</td></tr>
-	<tr><td>LMT</td><td>2024-12-23</td><td>487.43</td><td>488.85</td><td>481.83</td><td>486.49</td><td>1053900</td><td>467.0253</td></tr>
-	<tr><td>LMT</td><td>2024-12-24</td><td>486.06</td><td>488.73</td><td>484.01</td><td>488.13</td><td> 375900</td><td>468.5996</td></tr>
-	<tr><td>LMT</td><td>2024-12-26</td><td>488.00</td><td>493.47</td><td>486.27</td><td>489.98</td><td> 662100</td><td>470.3756</td></tr>
-	<tr><td>LMT</td><td>2024-12-27</td><td>488.38</td><td>493.40</td><td>486.38</td><td>488.97</td><td> 820600</td><td>469.4060</td></tr>
-	<tr><td>LMT</td><td>2024-12-30</td><td>486.00</td><td>486.55</td><td>481.85</td><td>483.37</td><td> 887600</td><td>464.0301</td></tr>
-</tbody>
-</table>
+5
+</div>
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="descarga-de-precios-historicos">&#128229; Descarga de precios hist&#243;ricos<a class="anchor-link" href="#descarga-de-precios-historicos">&#182;</a></h3><p>Como vimos en la clase anterior, <strong>Riesgo y Retorno</strong>, el paquete <code>tidyquant</code> permite trabajar con datos financieros dentro de la estructura y sintaxis del <code>tidyverse</code>.</p>
+<p>En particular, la función <code>tq_get()</code> se utiliza para descargar información financiera directamente desde fuentes como Yahoo Finance y almacenarla en un objeto de <strong>R</strong>.</p>
+<p>A continuación, descargaremos los precios históricos de las cinco acciones seleccionadas para el período de <strong>cinco años que finalizó ayer</strong>. Los datos obtenidos serán almacenados en el objeto <code>price_data</code>.</p>
+<p>Para ello, utilizaremos:</p>
+<ul>
+<li><code>tick</code>: vector que contiene los símbolos bursátiles de las acciones;</li>
+<li><code>from</code>: fecha de inicio del período;</li>
+<li><code>to</code>: fecha final del período;</li>
+<li><code>get = "stock.prices"</code>: indica que queremos descargar precios bursátiles históricos.</li>
+</ul>
+<blockquote><p>💡 Vamos a descargar 5 años de datos.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-5">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">price_data</span> <span class="o">&lt;-</span> <span class="nf">tq_get</span><span class="p">(</span><span class="n">tick</span><span class="p">,</span>
+                     <span class="n">from</span> <span class="o">=</span> <span class="s">&#39;2021-01-01&#39;</span><span class="p">,</span>
+                     <span class="n">to</span> <span class="o">=</span> <span class="s">&#39;2025-12-31&#39;</span><span class="p">,</span>
+                     <span class="n">get</span> <span class="o">=</span> <span class="s">&#39;stock.prices&#39;</span><span class="p">)</span>
+</pre></div>
+<div id="cell-5" class="clipboard-copy-txt">price_data <- tq_get(tick,
+                     from = '2021-01-01',
+                     to = '2025-12-31',
+                     get = 'stock.prices')</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-6">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-R"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Clase del objeto:&quot;</span><span class="p">,</span> <span class="nf">class</span><span class="p">(</span><span class="n">price_data</span><span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">IRdisplay</span><span class="p">))</span>
+
+<span class="nf">display_html</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span>
+  <span class="nf">kable</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">price_data</span><span class="p">,</span> <span class="m">10</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;html&quot;</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">format.args</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">big.mark</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">))</span>
+<span class="p">))</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span>
+  <span class="s">&quot;price_data contiene %s observaciones (%d activos x %d días de trading, aprox.).&quot;</span><span class="p">,</span>
+  <span class="nf">format</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">price_data</span><span class="p">),</span> <span class="n">big.mark</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">),</span>
+  <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">price_data</span><span class="o">$</span><span class="n">symbol</span><span class="p">)),</span>
+  <span class="nf">nrow</span><span class="p">(</span><span class="n">price_data</span><span class="p">)</span> <span class="o">%/%</span> <span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">price_data</span><span class="o">$</span><span class="n">symbol</span><span class="p">))</span>
+<span class="p">))</span>
+</pre></div>
+<div id="cell-6" class="clipboard-copy-txt">cat("Clase del objeto:", class(price_data), "\n")
+
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(IRdisplay))
+
+display_html(as.character(
+  kable(head(price_data, 10), format = "html", digits = 2, format.args = list(big.mark = ","))
+))
+
+cat(sprintf(
+  "price_data contiene %s observaciones (%d activos x %d días de trading, aprox.).",
+  format(nrow(price_data), big.mark = ","),
+  length(unique(price_data$symbol)),
+  nrow(price_data) %/% length(unique(price_data$symbol))
+))</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Clase del objeto: tbl_df tbl data.frame 
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> symbol </th>
+   <th style="text-align:left;"> date </th>
+   <th style="text-align:right;"> open </th>
+   <th style="text-align:right;"> high </th>
+   <th style="text-align:right;"> low </th>
+   <th style="text-align:right;"> close </th>
+   <th style="text-align:right;"> volume </th>
+   <th style="text-align:right;"> adjusted </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-04 </td>
+   <td style="text-align:right;"> 133.52 </td>
+   <td style="text-align:right;"> 133.61 </td>
+   <td style="text-align:right;"> 126.76 </td>
+   <td style="text-align:right;"> 129.41 </td>
+   <td style="text-align:right;"> 143,301,900 </td>
+   <td style="text-align:right;"> 125.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-05 </td>
+   <td style="text-align:right;"> 128.89 </td>
+   <td style="text-align:right;"> 131.74 </td>
+   <td style="text-align:right;"> 128.43 </td>
+   <td style="text-align:right;"> 131.01 </td>
+   <td style="text-align:right;"> 97,664,900 </td>
+   <td style="text-align:right;"> 127.30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-06 </td>
+   <td style="text-align:right;"> 127.72 </td>
+   <td style="text-align:right;"> 131.05 </td>
+   <td style="text-align:right;"> 126.38 </td>
+   <td style="text-align:right;"> 126.60 </td>
+   <td style="text-align:right;"> 155,088,000 </td>
+   <td style="text-align:right;"> 123.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-07 </td>
+   <td style="text-align:right;"> 128.36 </td>
+   <td style="text-align:right;"> 131.63 </td>
+   <td style="text-align:right;"> 127.86 </td>
+   <td style="text-align:right;"> 130.92 </td>
+   <td style="text-align:right;"> 109,578,200 </td>
+   <td style="text-align:right;"> 127.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-08 </td>
+   <td style="text-align:right;"> 132.43 </td>
+   <td style="text-align:right;"> 132.63 </td>
+   <td style="text-align:right;"> 130.23 </td>
+   <td style="text-align:right;"> 132.05 </td>
+   <td style="text-align:right;"> 105,158,200 </td>
+   <td style="text-align:right;"> 128.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-11 </td>
+   <td style="text-align:right;"> 129.19 </td>
+   <td style="text-align:right;"> 130.17 </td>
+   <td style="text-align:right;"> 128.50 </td>
+   <td style="text-align:right;"> 128.98 </td>
+   <td style="text-align:right;"> 100,384,500 </td>
+   <td style="text-align:right;"> 125.32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-12 </td>
+   <td style="text-align:right;"> 128.50 </td>
+   <td style="text-align:right;"> 129.69 </td>
+   <td style="text-align:right;"> 126.86 </td>
+   <td style="text-align:right;"> 128.80 </td>
+   <td style="text-align:right;"> 91,951,100 </td>
+   <td style="text-align:right;"> 125.15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-13 </td>
+   <td style="text-align:right;"> 128.76 </td>
+   <td style="text-align:right;"> 131.45 </td>
+   <td style="text-align:right;"> 128.49 </td>
+   <td style="text-align:right;"> 130.89 </td>
+   <td style="text-align:right;"> 88,636,800 </td>
+   <td style="text-align:right;"> 127.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-14 </td>
+   <td style="text-align:right;"> 130.80 </td>
+   <td style="text-align:right;"> 131.00 </td>
+   <td style="text-align:right;"> 128.76 </td>
+   <td style="text-align:right;"> 128.91 </td>
+   <td style="text-align:right;"> 90,221,800 </td>
+   <td style="text-align:right;"> 125.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AAPL </td>
+   <td style="text-align:left;"> 2021-01-15 </td>
+   <td style="text-align:right;"> 128.78 </td>
+   <td style="text-align:right;"> 130.22 </td>
+   <td style="text-align:right;"> 127.00 </td>
+   <td style="text-align:right;"> 127.14 </td>
+   <td style="text-align:right;"> 111,598,500 </td>
+   <td style="text-align:right;"> 123.54 </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>price_data contiene 6,270 observaciones (5 activos x 1254 días de trading, aprox.).</pre>
+</div>
 </div>
 
 </div>
