@@ -2751,11 +2751,11 @@ head(log_ret_xts)</div>
 <div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
 <pre>                  AAPL           WMT         INTC         XOM          LMT
 2021-01-04  0.00000000  0.000000e+00  0.000000000 0.000000000  0.000000000
-2021-01-05  0.01228823 -5.337252e-03  0.018748167 0.047067517  0.011969656
-2021-01-06 -0.03424122  6.224185e-03  0.009635267 0.025196855 -0.002181579
-2021-01-07  0.03355384 -6.825573e-05  0.021106618 0.007815388 -0.015870966
-2021-01-08  0.00859443 -1.364416e-04 -0.010400889 0.011059537 -0.019008880
-2021-01-11 -0.02352340  4.491101e-03 -0.002131964 0.029904797  0.004689976</pre>
+2021-01-05  0.01228811 -5.337504e-03  0.018748247 0.047067745  0.011969352
+2021-01-06 -0.03424122  6.224017e-03  0.009635099 0.025197279 -0.002181274
+2021-01-07  0.03355378 -6.808804e-05  0.021106455 0.007814859 -0.015870863
+2021-01-08  0.00859455 -1.361900e-04 -0.010400645 0.011059746 -0.019008983
+2021-01-11 -0.02352352  4.490934e-03 -0.002132209 0.029904592  0.004689976</pre>
 </div>
 
 </div>
@@ -3081,34 +3081,31 @@ $$\sigma_{p,\text{anual}}=\sqrt{W^{\prime}\Sigma W}$$<blockquote><p>💡 <strong
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nMatriz de varianzas-covarianzas anualizada Σ:\n&quot;</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">Sigma</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
 
-<span class="c1"># Retorno diario esperado del portafolio: R&#39;W</span>
-<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nR&#39; (vector de retornos, transpuesto):\n&quot;</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">R</span><span class="p">),</span> <span class="m">5</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">IRdisplay</span><span class="p">))</span>
 
-<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nW (vector de ponderaciones):\n&quot;</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<span class="c1"># Función auxiliar: convierte una matriz/vector numérico a notación LaTeX (bmatrix)</span>
+<span class="n">mat_to_latex</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="nf">as.matrix</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">digits</span><span class="p">)</span>
+  <span class="n">filas</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">fila</span><span class="p">)</span> <span class="nf">paste</span><span class="p">(</span><span class="n">fila</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&quot; &amp; &quot;</span><span class="p">))</span>
+  <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;\\begin{bmatrix}\n&quot;</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="n">filas</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&quot; \\\\\n&quot;</span><span class="p">),</span> <span class="s">&quot;\n\\end{bmatrix}&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 
+<span class="c1"># R&#39;W, en notación matricial y con los valores reales del ejemplo</span>
 <span class="n">retorno_diario</span> <span class="o">&lt;-</span> <span class="nf">t</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">W</span>
-<span class="nf">cat</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;\nR&#39;W = [%.5f  %.5f] x [%.1f, %.1f]&#39; = %.5f  (retorno diario esperado del portafolio)\n&quot;</span><span class="p">,</span>
-            <span class="n">R</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">retorno_diario</span><span class="p">))</span>
+<span class="nf">display_markdown</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+  <span class="s">&quot;$$\n&quot;</span><span class="p">,</span> <span class="nf">mat_to_latex</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">R</span><span class="p">),</span> <span class="m">5</span><span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="nf">mat_to_latex</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span>
+  <span class="s">&quot; = &quot;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">retorno_diario</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="s">&quot;\n$$&quot;</span>
+<span class="p">))</span>
 
-<span class="c1"># Anualizando: E[r_p,anual] = 252 * R&#39;W</span>
 <span class="n">retorno_anual</span> <span class="o">&lt;-</span> <span class="m">252</span> <span class="o">*</span> <span class="n">retorno_diario</span>
 <span class="nf">cat</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;Retorno esperado del portafolio (anualizado) = %.2f%%\n&quot;</span><span class="p">,</span> <span class="n">retorno_anual</span> <span class="o">*</span> <span class="m">100</span><span class="p">))</span>
 
-<span class="c1"># Varianza del portafolio: W&#39;ΣW (Sigma ya está anualizada, no se vuelve a multiplicar por 252)</span>
-<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nW&#39; (vector de ponderaciones, transpuesto):\n&quot;</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="m">4</span><span class="p">))</span>
-
-<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nΣ (matriz de varianzas-covarianzas anualizada):\n&quot;</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="n">Sigma</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
-
-<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;\nW (vector de ponderaciones):\n&quot;</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-
+<span class="c1"># W&#39;ΣW, en notación matricial y con los valores reales del ejemplo</span>
 <span class="n">varianza_anual</span> <span class="o">&lt;-</span> <span class="nf">t</span><span class="p">(</span><span class="n">W</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">Sigma</span> <span class="o">%*%</span> <span class="n">W</span>
-<span class="nf">cat</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;\nW&#39;ΣW = [%.1f  %.1f] x Σ x [%.1f, %.1f]&#39; = %.4f  (varianza anualizada del portafolio)\n&quot;</span><span class="p">,</span>
-            <span class="n">W</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">],</span> <span class="n">varianza_anual</span><span class="p">))</span>
+<span class="nf">display_markdown</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span>
+  <span class="s">&quot;$$\n&quot;</span><span class="p">,</span> <span class="nf">mat_to_latex</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="m">1</span><span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="nf">mat_to_latex</span><span class="p">(</span><span class="n">Sigma</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="nf">mat_to_latex</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span>
+  <span class="s">&quot; = &quot;</span><span class="p">,</span> <span class="nf">round</span><span class="p">(</span><span class="n">varianza_anual</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="s">&quot;\n$$&quot;</span>
+<span class="p">))</span>
 
 <span class="n">riesgo_anual</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">varianza_anual</span><span class="p">)</span>
 <span class="nf">cat</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;Riesgo (desviación estándar) anualizado      = %.2f%%\n&quot;</span><span class="p">,</span> <span class="n">riesgo_anual</span> <span class="o">*</span> <span class="m">100</span><span class="p">))</span>
@@ -3132,34 +3129,31 @@ print(round(R, 5))
 cat("\nMatriz de varianzas-covarianzas anualizada Σ:\n")
 print(round(Sigma, 4))
 
-# Retorno diario esperado del portafolio: R'W
-cat("\nR' (vector de retornos, transpuesto):\n")
-print(round(t(R), 5))
+suppressPackageStartupMessages(library(IRdisplay))
 
-cat("\nW (vector de ponderaciones):\n")
-print(W)
+# Función auxiliar: convierte una matriz/vector numérico a notación LaTeX (bmatrix)
+mat_to_latex <- function(m, digits = 4) {
+  m <- round(as.matrix(m), digits)
+  filas <- apply(m, 1, function(fila) paste(fila, collapse = " & "))
+  paste0("\\begin{bmatrix}\n", paste(filas, collapse = " \\\\\n"), "\n\\end{bmatrix}")
+}
 
+# R'W, en notación matricial y con los valores reales del ejemplo
 retorno_diario <- t(R) %*% W
-cat(sprintf("\nR'W = [%.5f  %.5f] x [%.1f, %.1f]' = %.5f  (retorno diario esperado del portafolio)\n",
-            R[1, 1], R[2, 1], W[1, 1], W[2, 1], retorno_diario))
+display_markdown(paste0(
+  "$$\n", mat_to_latex(t(R), 5), "\n", mat_to_latex(W, 1),
+  " = ", round(retorno_diario, 5), "\n$$"
+))
 
-# Anualizando: E[r_p,anual] = 252 * R'W
 retorno_anual <- 252 * retorno_diario
 cat(sprintf("Retorno esperado del portafolio (anualizado) = %.2f%%\n", retorno_anual * 100))
 
-# Varianza del portafolio: W'ΣW (Sigma ya está anualizada, no se vuelve a multiplicar por 252)
-cat("\nW' (vector de ponderaciones, transpuesto):\n")
-print(round(t(W), 4))
-
-cat("\nΣ (matriz de varianzas-covarianzas anualizada):\n")
-print(round(Sigma, 4))
-
-cat("\nW (vector de ponderaciones):\n")
-print(W)
-
+# W'ΣW, en notación matricial y con los valores reales del ejemplo
 varianza_anual <- t(W) %*% Sigma %*% W
-cat(sprintf("\nW'ΣW = [%.1f  %.1f] x Σ x [%.1f, %.1f]' = %.4f  (varianza anualizada del portafolio)\n",
-            W[1, 1], W[2, 1], W[1, 1], W[2, 1], varianza_anual))
+display_markdown(paste0(
+  "$$\n", mat_to_latex(t(W), 1), "\n", mat_to_latex(Sigma, 4), "\n", mat_to_latex(W, 1),
+  " = ", round(varianza_anual, 4), "\n$$"
+))
 
 riesgo_anual <- sqrt(varianza_anual)
 cat(sprintf("Riesgo (desviación estándar) anualizado      = %.2f%%\n", riesgo_anual * 100))</div>
@@ -3198,35 +3192,76 @@ Matriz de varianzas-covarianzas anualizada Σ:
        AAPL    WMT
 AAPL 0.0771 0.0166
 WMT  0.0166 0.0439
+</pre>
+</div>
+</div>
 
-R&#39; (vector de retornos, transpuesto):
-        AAPL     WMT
-E[r] 0.00062 0.00072
+<div class="jp-OutputArea-child">
 
-W (vector de ponderaciones):
-       w
-AAPL 0.6
-WMT  0.4
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
-R&#39;W = [0.00062  0.00072] x [0.6, 0.4]&#39; = 0.00066  (retorno diario esperado del portafolio)
-Retorno esperado del portafolio (anualizado) = 16.54%
 
-W&#39; (vector de ponderaciones, transpuesto):
-  AAPL WMT
-w  0.6 0.4
 
-Σ (matriz de varianzas-covarianzas anualizada):
-       AAPL    WMT
-AAPL 0.0771 0.0166
-WMT  0.0166 0.0439
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
+$$
+\begin{bmatrix}
+0.00062 &amp; 0.00072
+\end{bmatrix}
+\begin{bmatrix}
+0.6 \\
+0.4
+\end{bmatrix} = 0.00066
+$$
+</div>
 
-W (vector de ponderaciones):
-       w
-AAPL 0.6
-WMT  0.4
+</div>
 
-W&#39;ΣW = [0.6  0.4] x Σ x [0.6, 0.4]&#39; = 0.0428  (varianza anualizada del portafolio)
-Riesgo (desviación estándar) anualizado      = 20.68%
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Retorno esperado del portafolio (anualizado) = 16.54%
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
+$$
+\begin{bmatrix}
+0.6 &amp; 0.4
+\end{bmatrix}
+\begin{bmatrix}
+0.0771 &amp; 0.0166 \\
+0.0166 &amp; 0.0439
+\end{bmatrix}
+\begin{bmatrix}
+0.6 \\
+0.4
+\end{bmatrix} = 0.0428
+$$
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Riesgo (desviación estándar) anualizado      = 20.68%
 </pre>
 </div>
 </div>
