@@ -87,7 +87,7 @@ nav:
     - Home: index.md
     - Programa: programa.md
     - Clases:
-        - Riesgo-Retorno: clases/clases.md
+        - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
     - Ejercicios: exercises/exercises.md
     - Datasets: datasets/datasets.md
     - Evaluaciones:
