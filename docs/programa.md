@@ -83,8 +83,6 @@ Los notebooks publicados en la sección [Notebooks Interactivos](Notebooks%20Int
 
 Nota mínima de aprobación: **70/100**.
 
-Ver más detalle en la sección [Evaluaciones](assessments/proyecto_integrador.md).
-
 ## Bibliografía
 
 **Texto principal**
