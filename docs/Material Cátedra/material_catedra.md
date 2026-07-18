@@ -1,8 +1,8 @@
 ---
-title: "Slides"
+title: "Material Cátedra"
 ---
 
-# Slides
+# Material Cátedra
 
 Presentaciones de cada unidad, organizadas por módulo. Se irán publicando progresivamente.
 
