@@ -85,7 +85,7 @@ nav:
     - Notebooks Interactivos:
         - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
     - Slides: Slides/slides.md
-    - Controles y Trabajos: exercises/exercises.md
+    - Controles y Trabajos: "Controles y Trabajos/exercises.md"
     - Datasets: datasets/datasets.md
     - Evaluaciones:
         - "📊 Proyecto Integrador": assessments/proyecto_integrador.md

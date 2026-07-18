@@ -23,7 +23,7 @@
 │   ├───datasets
 │   │       datasets.md
 │   │
-│   ├───exercises
+│   ├───Controles y Trabajos
 │   │       exercises.md
 │   │
 │   ├───images
@@ -49,7 +49,7 @@ donde:
   * `assessments`: evaluaciones del curso (ej. proyecto integrador).
   * `clases`: notebooks de cada unidad del curso.
   * `datasets`: datasets utilizados en el curso.
-  * `exercises`: ejercicios de práctica adicionales.
+  * `Controles y Trabajos`: controles y trabajos de práctica adicionales.
   * `images`: carpeta con las imágenes del *logo*, *favicon* y perfil del profesor.
   * `index.md`: archivo markdown inicial (perfil del profesor).
   * `programa.md`: programa del curso.
