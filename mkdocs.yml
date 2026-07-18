@@ -82,9 +82,9 @@ plugins:
 nav:
     - Home: index.md
     - Programa: programa.md
-    - Clases:
+    - Notebooks Interactivos:
         - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
-        - Slides: clases/Slides/slides.md
+    - Slides: Slides/slides.md
     - Controles y Trabajos: exercises/exercises.md
     - Datasets: datasets/datasets.md
     - Evaluaciones:
