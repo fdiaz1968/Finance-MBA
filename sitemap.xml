@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://fdiaz1968.github.io/Finance-MBA/Controles%20y%20Trabajos/exercises/</loc>
+         <lastmod>2026-07-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/Slides/slides/</loc>
          <lastmod>2026-07-18</lastmod>
          <changefreq>daily</changefreq>
@@ -47,11 +52,6 @@
     </url>
     <url>
          <loc>https://fdiaz1968.github.io/Finance-MBA/datasets/datasets/</loc>
-         <lastmod>2026-07-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://fdiaz1968.github.io/Finance-MBA/exercises/exercises/</loc>
          <lastmod>2026-07-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
