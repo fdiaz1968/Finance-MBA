@@ -15,3 +15,7 @@ Material de código correspondiente al **Módulo 3 — Riesgo y Diversificación
 > Notebooks en **R** usan `tidyquant`; al abrir en Colab, cambia el runtime a R (`Entorno de ejecución → Cambiar tipo de entorno de ejecución → R`) antes de ejecutar. El notebook en **Python** usa `yfinance` y corre en el runtime por defecto de Colab.
 
 ## Portfolio
+
+[2. Frontera Eficiente y el Efecto de la Diversificación](2_Portfolio.ipynb) <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" style="height: 1em !important; width: auto !important; max-width: none !important; vertical-align: middle;"/> | <a href="https://colab.research.google.com/github/fdiaz1968/Finance-MBA/blob/main/docs/clases/2_Portfolio.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+> Notebook en **R**, usa `tidyquant`; al abrir en Colab, cambia el runtime a R (`Entorno de ejecución → Cambiar tipo de entorno de ejecución → R`) antes de ejecutar.
