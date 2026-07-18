@@ -16,7 +16,7 @@
 │   ├───assessments
 │   │       proyecto_integrador.md
 │   │
-│   ├───clases
+│   ├───Notebooks Interactivos
 │   │       clases.md
 │   │       indices_americanos.ipynb
 │   │
@@ -47,7 +47,7 @@ donde:
 * `documentation.yml`: archivo para generar el CI del proyecto.
 * `docs`: carpeta donde se almacena la documentación del curso.
   * `assessments`: evaluaciones del curso (ej. proyecto integrador).
-  * `clases`: notebooks de cada unidad del curso.
+  * `Notebooks Interactivos`: notebooks de cada unidad del curso.
   * `datasets`: datasets utilizados en el curso.
   * `Controles y Trabajos`: controles y trabajos de práctica adicionales.
   * `images`: carpeta con las imágenes del *logo*, *favicon* y perfil del profesor.

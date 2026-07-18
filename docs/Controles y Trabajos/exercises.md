@@ -4,7 +4,7 @@ title: "Controles y Trabajos"
 
 # Controles y Trabajos
 
-Cada notebook de la sección [Clases](../clases/clases.md) incluye ejercicios guiados a lo largo de la unidad.
+Cada notebook de la sección [Notebooks Interactivos](../Notebooks%20Interactivos/clases.md) incluye ejercicios guiados a lo largo de la unidad.
 
 Esta sección se usará para publicar controles y trabajos adicionales a medida que estén disponibles.
 

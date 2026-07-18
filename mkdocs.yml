@@ -83,7 +83,7 @@ nav:
     - Home: index.md
     - Programa: programa.md
     - Notebooks Interactivos:
-        - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
+        - "Módulo 3 — Riesgo y Diversificación": "Notebooks Interactivos/clases.md"
     - Material Cátedra: "Material Cátedra/material_catedra.md"
     - Controles y Trabajos: "Controles y Trabajos/exercises.md"
     - Datasets: datasets/datasets.md

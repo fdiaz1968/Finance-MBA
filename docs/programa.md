@@ -61,7 +61,7 @@ El curso se organiza en **cuatro módulos principales**, que corresponden direct
 
 ## Material de Código
 
-Los notebooks publicados en la sección [Clases](clases/clases.md) no cubren todavía los cuatro módulos completos: por ahora se enfocan en los temas de **trade-off riesgo-retorno, teoría de portafolio, valoración de activos (CAPM y APT) y selección de portafolio**, correspondientes principalmente al **Módulo 3 — Riesgo y Diversificación**. El resto del material de código se irá publicando a medida que avance el curso.
+Los notebooks publicados en la sección [Notebooks Interactivos](Notebooks%20Interactivos/clases.md) no cubren todavía los cuatro módulos completos: por ahora se enfocan en los temas de **trade-off riesgo-retorno, teoría de portafolio, valoración de activos (CAPM y APT) y selección de portafolio**, correspondientes principalmente al **Módulo 3 — Riesgo y Diversificación**. El resto del material de código se irá publicando a medida que avance el curso.
 
 ## Metodología de Enseñanza-Aprendizaje
 

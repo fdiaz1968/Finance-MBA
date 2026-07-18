@@ -134,4 +134,4 @@
 
 Este sitio complementa el curso con material de código (R / Python) enfocado en el **trade-off riesgo-retorno, la teoría de portafolio, la valoración de activos (CAPM y APT) y la selección de portafolio**.
 
-Revisa el [Programa](programa.md) para la descripción completa del curso, objetivos y contenidos, o entra directo a las [Clases](clases/clases.md) para acceder a los notebooks de cada unidad.
+Revisa el [Programa](programa.md) para la descripción completa del curso, objetivos y contenidos, o entra directo a los [Notebooks Interactivos](Notebooks%20Interactivos/clases.md) para acceder a los notebooks de cada unidad.
