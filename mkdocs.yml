@@ -76,7 +76,6 @@ extra:
 plugins:
   - mkdocs-jupyter:
       kernel_name: python3
-      ignore_h1_titles: true
   - search
 
 # TOC
@@ -85,10 +84,6 @@ nav:
     - Programa: programa.md
     - Clases:
         - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
-        - Jupyter Notebooks:
-            - "1. Riesgo-Retorno: Clases de Activos (R)": "clases/Jupyter Notebooks/1_Riesgo_Retorno_R.ipynb"
-            - "1. Riesgo-Retorno: Clases de Activos (Python)": "clases/Jupyter Notebooks/1_Riesgo_Retorno_Py.ipynb"
-            - "2. Frontera Eficiente y el Efecto de la Diversificación (R)": "clases/Jupyter Notebooks/2_Portfolio_R.ipynb"
         - Slides: clases/Slides/slides.md
     - Controles y Trabajos: exercises/exercises.md
     - Datasets: datasets/datasets.md
