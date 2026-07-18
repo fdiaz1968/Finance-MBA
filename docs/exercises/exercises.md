@@ -1,14 +1,14 @@
 ---
-title: "Ejercicios"
+title: "Controles y Trabajos"
 ---
 
-# Ejercicios
+# Controles y Trabajos
 
 Cada notebook de la sección [Clases](../clases/clases.md) incluye ejercicios guiados a lo largo de la unidad.
 
-Esta sección se usará para publicar ejercicios de práctica adicionales a medida que estén disponibles.
+Esta sección se usará para publicar controles y trabajos adicionales a medida que estén disponibles.
 
-## Controles
+## Trabajos Grupales
 
-- [Control 1 - Clase 1](Control%201%20Clase%201.pdf)
-- [Control 2 - Clase 1](Control%202%20Clase%201.pdf)
+- [Trabajo Grupal 1](Trabajo%20Grupal%201.pdf)
+- [Trabajo Grupal 2](Trabajo%20Grupal%202.pdf)
