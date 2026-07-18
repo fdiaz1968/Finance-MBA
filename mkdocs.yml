@@ -84,7 +84,7 @@ nav:
     - Programa: programa.md
     - Clases:
         - "Módulo 3 — Riesgo y Diversificación": clases/clases.md
-    - Ejercicios: exercises/exercises.md
+    - Controles y Trabajos: exercises/exercises.md
     - Datasets: datasets/datasets.md
     - Evaluaciones:
         - "📊 Proyecto Integrador": assessments/proyecto_integrador.md
