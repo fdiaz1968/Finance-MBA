@@ -17,3 +17,7 @@ Presentaciones de cada unidad, organizadas por módulo. Se irán publicando prog
 - [3. Bonos](3_Bonos.pdf)
 - [3.1 Documento: Duration](3.1_Documento_Duration.pdf)
 - [4. Acciones](4_Acciones.pdf)
+
+## Módulo 3: Riesgo y Diversificación
+
+- [5. Riesgo Retorno Diversificación](5_Riesgo%20Retorno%20Diversificaci%C3%B3n.pdf)
