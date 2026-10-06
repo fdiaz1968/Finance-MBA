@@ -22,6 +22,14 @@ Material de código correspondiente al **Módulo 3 — Riesgo y Diversificación
 
 > Notebooks en **R** usan `tidyquant`; al abrir en Colab, cambia el runtime a R (`Entorno de ejecución → Cambiar tipo de entorno de ejecución → R`) antes de ejecutar. El notebook en **Python** usa `yfinance` y `statsmodels`, y corre en el runtime por defecto de Colab.
 
+## Examen: Betas del Retail Chileno
+
+[Examen: Estimación de Betas de Falabella, Cencosud y Ripley](Estimacion_Betas_Retail_R_Examen.ipynb) <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" style="height: 1em !important; width: auto !important; max-width: none !important; vertical-align: middle;"/> | <a href="https://colab.research.google.com/github/fdiaz1968/Finance-MBA/blob/main/docs/Notebooks%20Interactivos/Estimacion_Betas_Retail_R_Examen.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+[Examen: Estimación de Betas de Falabella, Cencosud y Ripley](Estimacion_Betas_Retail_Py_Examen.ipynb) <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="height: 1em !important; width: auto !important; max-width: none !important; vertical-align: middle;"/> | <a href="https://colab.research.google.com/github/fdiaz1968/Finance-MBA/blob/main/docs/Notebooks%20Interactivos/Estimacion_Betas_Retail_Py_Examen.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+> Antes de ejecutar, reemplace `rf = 0.07` (Python) o `rf <- 0.07` (R), en la sección del CAPM, por la tasa libre de riesgo que eligió en la pregunta (c). Notebooks en **R** usan `tidyquant`; al abrir en Colab, cambia el runtime a R (`Entorno de ejecución → Cambiar tipo de entorno de ejecución → R`) antes de ejecutar. El notebook en **Python** usa `yfinance` y `statsmodels`, y corre en el runtime por defecto de Colab.
+
 ## Beta y Retorno Esperado
 
 [3. Beta y Retorno Esperado: ¿Existe una Relación Positiva?](3_Beta_Retorno_Py.ipynb) <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="height: 1em !important; width: auto !important; max-width: none !important; vertical-align: middle;"/> | <a href="https://colab.research.google.com/github/fdiaz1968/Finance-MBA/blob/main/docs/Notebooks%20Interactivos/3_Beta_Retorno_Py.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
